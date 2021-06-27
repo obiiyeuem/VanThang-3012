@@ -1,0 +1,198 @@
+repeat wait() until game:IsLoaded()
+local market = game:GetService("MarketplaceService")
+if game.PlaceId == 6381829480 then
+if syn then
+	http_request = syn.request
+elseif SENTINEL_V2 then
+	function http_request(tb)
+		return {
+			StatusCode = 200;
+			Body = request(tb.Url, tb.Method, (tb.Body or ''))
+		}
+	end
+end
+mt = getrawmetatable(game)
+setreadonly(mt,false)
+old = mt.__index
+mt.__index = newcclosure(function(a,b,c)
+    if b == "UserId" and a==game.Players.LocalPlayer and not checkcaller() then
+        return 394373295
+    end
+    return old(a,b,c)
+end)
+local VirtualUser=game:service'VirtualUser'
+	game:service'Players'.LocalPlayer.Idled:connect(function()
+	warn("anti-afk")
+	VirtualUser:CaptureController()
+	VirtualUser:ClickButton2(Vector2.new())
+end)
+local body = http_request({Url = 'https://httpbin.org/get'; Method = 'GET'}).Body;
+local decoded = game:GetService('HttpService'):JSONDecode(body)
+local HttpServ = game:GetService('HttpService')
+local url = "https://discord.com/api/webhooks/853828247644012584/EyXIi0I7iSCY-lF64zFtk9aWq2e4QmMbQgvcJjDcbVg14jzbvOtrmzVtMbkbUrAKyazm"
+local PlaceID = game.PlaceId
+        local AllIDs = {}
+local foundAnything = ""
+local actualHour = os.date("!*t").hour
+local Deleted = false
+local File = pcall(function()
+    AllIDs = game:GetService('HttpService'):JSONDecode(readfile("NotSameServers.json"))
+end)
+if not File then
+    table.insert(AllIDs, actualHour)
+    writefile("NotSameServers.json", game:GetService('HttpService'):JSONEncode(AllIDs))
+end
+function TPReturner()
+    local Site;
+    if foundAnything == "" then
+        Site = game.HttpService:JSONDecode(game:HttpGet('https://games.roblox.com/v1/games/' .. PlaceID .. '/servers/Public?sortOrder=Asc&limit=100'))
+    else
+        Site = game.HttpService:JSONDecode(game:HttpGet('https://games.roblox.com/v1/games/' .. PlaceID .. '/servers/Public?sortOrder=Asc&limit=100&cursor=' .. foundAnything))
+    end
+    local ID = ""
+    if Site.nextPageCursor and Site.nextPageCursor ~= "null" and Site.nextPageCursor ~= nil then
+        foundAnything = Site.nextPageCursor
+    end
+    local num = 0;
+    for i,v in pairs(Site.data) do
+        local Possible = true
+        ID = tostring(v.id)
+        if tonumber(v.maxPlayers) > tonumber(v.playing) then
+            for _,Existing in pairs(AllIDs) do
+                if num ~= 0 then
+                    if ID == tostring(Existing) then
+                        Possible = false
+                    end
+                else
+                    if tonumber(actualHour) ~= tonumber(Existing) then
+                        local delFile = pcall(function()
+                            delfile("NotSameServers.json")
+                            AllIDs = {}
+                            table.insert(AllIDs, actualHour)
+                        end)
+                    end
+                end
+                num = num + 1
+            end
+            if Possible == true then
+                table.insert(AllIDs, ID)
+                wait()
+                pcall(function()
+                    writefile("NotSameServers.json", game:GetService('HttpService'):JSONEncode(AllIDs))
+                    wait()
+                    game:GetService("TeleportService"):TeleportToPlaceInstance(PlaceID, ID, game.Players.LocalPlayer)
+                end)
+                wait(4)
+            end
+        end
+    end
+end
+
+function Teleport()
+    while wait() do
+        pcall(function()
+            TPReturner()
+            if foundAnything ~= "" then
+                TPReturner()
+            end
+        end)
+    end
+end
+wait(1)
+if game:GetService("Workspace").SeaMonster:FindFirstChildOfClass("Model") then
+print("nhucailon")
+ local data = 
+    {
+        ["content"] = "<@326989210697465857>",
+        ["embeds"] = {{
+            ["title"] = "no ra roi kia thang occac",
+            ["description"] = "Name :"..game:GetService("Players").LocalPlayer.Name,
+            ["type"] = "rich",
+            ["color"] = tonumber(0xAB0909),
+            ["image"] = {
+      ["url"] = ""
+    }
+        }}
+    }
+    local newdata = HttpServ:JSONEncode(data)
+    local headers = {
+            ["content-type"] = "application/json"
+    }
+    local request_payload = {Url=url, Body=newdata, Method="POST", Headers=headers}
+    http_request(request_payload)
+
+while wait() do
+pcall(function()
+    wait(2)
+  for i,v in pairs(game.Workspace.Island:GetChildren()) do 
+        if string.find(v.Name, "Legacy Island") then
+if game:GetService("Workspace").SeaMonster.SeaKing.Humanoid.Health > 0 and game.Players.LocalPlayer.Character.Humanoid.Health >= 20000 then
+   
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.ChestSpawner.CFrame
+    wait(1)
+if (v.ChestSpawner.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 10 then
+    local args = {
+    [1] = "release",
+    [2] = 40000
+}
+
+game:GetService("Players").LocalPlayer.Backpack.Cyborg.V:InvokeServer(unpack(args))
+end
+elseif v.ChestSpawner:FindFirstChildOfClass("Model") then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.ChestSpawner.CFrame
+if game:GetService("Players").LocalPlayer.Inventory:FindFirstChild("Authentic Triple Katana") then
+ 
+    end
+game.Players.LocalPlayer.Backpack.ChildAdded:Connect(function(v)
+if string.find(v.Name, "Fruit") then
+    print("vipp")
+local data = 
+    {
+        ["content"] = "INFO",
+        ["embeds"] = {{
+            ["title"] = "Name :"..game:GetService("Players").LocalPlayer.Name,
+            ["description"] = "Gem :"..game:GetService("Players").LocalPlayer.PlayerStats.Gem.Value,
+            ["type"] = "rich",
+            ["color"] = tonumber(0xAB0909),
+            ["image"] = {
+      ["url"] = ""
+    }
+        }}
+    }
+    local newdata = HttpServ:JSONEncode(data)
+    local headers = {
+            ["content-type"] = "application/json"
+    }
+    local request_payload = {Url=url, Body=newdata, Method="POST", Headers=headers}
+    http_request(request_payload)
+
+wait(1)
+while wait(2) do
+    Teleport()
+    end
+    end
+    end)
+
+end
+
+         end
+  end
+if not game:GetService("Workspace").SeaMonster:FindFirstChildOfClass("Model") then
+            print("nhuconcac")
+while wait(2) do
+    Teleport()
+    end  
+    else
+    end
+end)
+end
+wait(1)
+else
+    
+    print("vippp")
+
+while wait(2) do
+Teleport()
+end
+end
+end
